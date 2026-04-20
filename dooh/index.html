@@ -83,7 +83,9 @@
 
   .cases { background: var(--light-gray); }
   .cases-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: rgba(255,255,255,0.04); }
-  .case-card { background: var(--light-gray); padding: 40px; position: relative; overflow: hidden; transition: background 0.3s; }
+  .case-card { background: var(--light-gray); padding: 40px; position: relative; overflow: hidden; transition: background 0.3s; text-decoration: none; color: inherit; display: block; }
+  .view-report { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-top: 20px; display: block; }
+  .no-report .view-report { color: var(--gray); }
   .case-card:hover { background: #1f1f1f; }
   .case-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
   .case-card.success::before { background: var(--green); }
@@ -183,10 +185,6 @@
   </div>
   <div class="hero-stats">
     <div>
-      <div class="stat-num">4+</div>
-      <div class="stat-label">Cities covered</div>
-    </div>
-    <div>
       <div class="stat-num">48H</div>
       <div class="stat-label">Delivery time</div>
     </div>
@@ -272,7 +270,7 @@
   <h2 class="section-title spaced">RECENT CAMPAIGNS</h2>
   <div class="cases-grid">
 
-    <div class="case-card success">
+    <a class="case-card success" href="DOOH_Report_Brussels_Cosmetics.pdf" target="_blank">
       <div class="case-city">BRUSSELS</div>
       <div class="case-client">Lumière Botanique — Cosmetics</div>
       <div class="case-meta">
@@ -293,9 +291,10 @@
         <span class="badge green">5 Captured</span>
         <span class="badge orange">1 Issue</span>
       </div>
-    </div>
+      <span class="view-report">View Report →</span>
+    </a>
 
-    <div class="case-card mixed">
+    <a class="case-card mixed" href="DOOH_Report_Amsterdam.pdf" target="_blank">
       <div class="case-city">AMSTERDAM</div>
       <div class="case-client">Velo Technologies — App Launch</div>
       <div class="case-meta">
@@ -317,9 +316,10 @@
         <span class="badge orange">2 Issues</span>
         <span class="badge red">1 Offline</span>
       </div>
-    </div>
+      <span class="view-report">View Report →</span>
+    </a>
 
-    <div class="case-card issues">
+    <a class="case-card issues" href="DOOH_Report_Paris_FoodBev.pdf" target="_blank">
       <div class="case-city">PARIS</div>
       <div class="case-client">Racines Sauvages — Food & Bev</div>
       <div class="case-meta">
@@ -341,9 +341,10 @@
         <span class="badge orange">3 Issues</span>
         <span class="badge red">2 Offline</span>
       </div>
-    </div>
+      <span class="view-report">View Report →</span>
+    </a>
 
-    <div class="case-card multi">
+    <div class="case-card multi no-report">
       <div class="case-city">BRUSSELS / PARIS</div>
       <div class="case-client">Impact Iran — NGO</div>
       <div class="case-meta">
@@ -366,6 +367,7 @@
         <span class="badge red">2 Offline</span>
         <span class="badge yellow">2 Cities</span>
       </div>
+      <span class="view-report">Report available on request</span>
     </div>
 
   </div>

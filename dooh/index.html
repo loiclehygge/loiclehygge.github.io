@@ -142,6 +142,26 @@
   .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--accent); }
   .footer-copy { font-size: 11px; color: var(--gray); letter-spacing: 1px; }
 
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 61px; left: 0; right: 0; z-index: 99;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 24px 48px;
+    gap: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: var(--white); text-decoration: none; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .mobile-menu a:last-child { border-bottom: none; }
+
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -151,6 +171,7 @@
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     section { padding: 80px 24px; }
     .hero { padding: 0 24px 64px; }
     .hero-stats { display: none; }
@@ -172,7 +193,28 @@
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#cases" onclick="closeMobile()">Case Studies</a>
+  <a href="#pricing" onclick="closeMobile()">Pricing</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+</script>
 
 <section class="hero">
   <div class="hero-bg"></div>
